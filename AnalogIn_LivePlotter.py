@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 """
 This code will live plot data from your DAQ connected to your computer via USB. If you are taking a differential measurement,
-e.g, from a load cell, update  terminal_config=TerminalConfiguration.RSE to  terminal_config=TerminalConfiguration.DIFFERENTIAL
+e.g, from a load cell, update  terminal_config=TerminalConfiguration.RSE to  terminal_config=TerminalConfiguration.DIFF
 
 To save the plotted figure, click "save" from the plotting GUI or you can keyboard interrupt with several different keystrokes within a short timespan
 To stop the plotting, stop the Python script (closing plot will not abort script)
@@ -31,7 +31,7 @@ sample_index = 0
 with nidaqmx.Task() as task:
     task.ai_channels.add_ai_voltage_chan(
         f"{mydaq}/ai0",
-        terminal_config=TerminalConfiguration.RSE
+        terminal_config=TerminalConfiguration.DIFF
     )
 
     task.timing.cfg_samp_clk_timing(
